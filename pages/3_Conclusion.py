@@ -1,175 +1,216 @@
 
 import streamlit as st
 
+from utils import load_data
+
+
 st.set_page_config(
     page_title="Conclusion",
     layout="wide"
 )
 
+
+# -----------------------------
+# Load Data
+# -----------------------------
+
+df = load_data()
+
+
+# -----------------------------
+# Title
+# -----------------------------
+
 st.title("Conclusion")
 
 st.markdown("""
-The exploratory data analysis helped identify patterns
-in used-car prices and examine the relationships between
-price and different vehicle characteristics.
+The exploratory data analysis provided an understanding
+of the distribution of cars, their characteristics,
+and the variation in used-car prices across different
+categories and locations.
 
-The following findings include numerical results reported
-in the project analysis document.
+The following conclusions summarize the areas examined
+through the EDA visualizations.
 """)
 
+
 st.divider()
 
-st.subheader("Key Numerical Findings")
 
-col1, col2 = st.columns(2)
+# -----------------------------
+# Dataset Overview
+# -----------------------------
+
+st.subheader("Dataset Overview")
+
+col1, col2, col3 = st.columns(3)
 
 with col1:
     st.metric(
-        label="Correlation: Kilometers Driven vs Price",
-        value="-0.63"
+        "Total Cars Analyzed",
+        f"{len(df):,}"
     )
-
-    st.markdown("""
-    The project document reports a negative correlation
-    between kilometers driven and car price.
-
-    This indicates that cars with higher kilometers driven
-    tend to be associated with lower prices in the analyzed
-    data.
-    """)
 
 with col2:
     st.metric(
-        label="Correlation: Engine Value vs Price",
-        value="0.66"
+        "Average Car Price",
+        f"{df['Price'].mean():.2f} Lakhs"
     )
 
-    st.markdown("""
-    The project document reports a positive relationship
-    between engine value and car price.
+with col3:
+    st.metric(
+        "Car Companies",
+        f"{df['Company_name'].nunique():,}"
+    )
 
-    This indicates that cars with larger engine values
-    tend to be associated with higher prices in the
-    analyzed data.
-    """)
 
 st.divider()
 
-st.subheader("Analysis Scale and Automation")
 
-col1, col2 = st.columns(2)
+# -----------------------------
+# Car Characteristics
+# -----------------------------
 
-with col1:
-    st.metric(
-        label="Automobile Records",
-        value="5,900+"
-    )
-
-    st.markdown("""
-    The project document describes an analysis involving
-    more than 5,900 automobile records and over 15
-    attributes.
-    """)
-
-with col2:
-    st.metric(
-        label="Reported Reduction in Manual Analysis Time",
-        value="Around 70%"
-    )
-
-    st.markdown("""
-    The project document reports that automated
-    visualizations reduced manual analysis time by
-    approximately 70% when evaluating the dataset.
-    """)
-
-st.divider()
-
-st.subheader("Car Characteristics and Pricing")
+st.subheader("Car Characteristics")
 
 st.markdown("""
-The analysis document identifies several vehicle
-characteristics that may be associated with used-car prices:
-
-- **Manufacturing year:** Older cars may experience
-  depreciation and changes in demand.
-- **Kilometers driven:** The reported correlation of
-  -0.63 indicates a negative relationship with price.
-- **Engine value:** The reported correlation of 0.66
-  indicates a positive relationship with price.
-- **Transmission:** The document notes that automatic
-  cars sell at higher prices.
-- **Fuel type:** The document discusses diesel-car demand
-  in relation to increasing petrol prices.
-- **Brand and model:** Maruti, Hyundai, and Honda are
-  identified in the document as popular, lower-budget
-  brands in the used-car market.
+- The dataset contains cars from multiple manufacturers.
+- Different fuel types are represented, allowing
+  comparisons of their distribution.
+- Both manual and automatic transmission cars are
+  included in the dataset.
+- Cars vary in manufacturing year, kilometers driven,
+  mileage, engine capacity, and power.
+- The company and owner-type charts provide an overview
+  of the composition of the available car listings.
 """)
 
+
 st.divider()
+
+
+# -----------------------------
+# Location Insights
+# -----------------------------
 
 st.subheader("Location Insights")
 
 st.markdown("""
-The project document identifies Mumbai and Hyderabad
-as potentially popular used-car markets.
-
-However, it also notes that this observation needs to
-be verified using more data from other demographic
-regions.
-
-Further analysis could compare locations and investigate
-whether separate groups of cars or locations should be
-studied independently.
+- The number of car listings varies across locations.
+- The location analysis identifies the locations with
+  the highest number of listings.
+- Average selling prices can also be compared across
+  locations.
+- These comparisons help explore geographical
+  differences in the available used-car listings.
 """)
+
 
 st.divider()
 
-st.subheader("Additional Factors to Consider")
+
+# -----------------------------
+# Price Analysis
+# -----------------------------
+
+st.subheader("Price Analysis")
 
 st.markdown("""
-The document also identifies factors that are not fully
-represented by the numerical relationships discussed above:
-
-- Vehicle wear and tear
-- Accident history
-- Air conditioning, moonroof, and airbags
-- Maintenance and servicing requirements
-- Customer test-drive and maintenance-package schemes
+- The price distribution visualization shows how
+  used-car prices are spread across the dataset.
+- Average prices can be compared across different
+  fuel types.
+- The transmission analysis allows comparison of
+  average prices between manual and automatic cars.
+- These comparisons help identify differences in
+  observed prices across vehicle categories.
 """)
 
+
 st.divider()
+
+
+# -----------------------------
+# Relationship Between Variables
+# -----------------------------
+
+st.subheader("Relationship Between Variables")
+
+st.markdown("""
+The interactive scatter plot allows users to examine
+relationships between numerical variables.
+
+The available variables include:
+
+- Manufacturing year
+- Kilometers driven
+- Mileage
+- Engine capacity
+- Power
+- Selling price
+
+By selecting different variables for the X-axis and
+Y-axis, users can visually explore patterns, trends,
+and possible relationships in the dataset.
+""")
+
+
+st.divider()
+
+
+# -----------------------------
+# Overall Conclusion
+# -----------------------------
 
 st.subheader("Overall Conclusion")
 
 st.markdown("""
-The analysis document reports that kilometers driven
-has a negative correlation with price (-0.63), while
-engine value has a positive correlation with price (0.66).
+The EDA demonstrates that the used-car dataset contains
+variation in vehicle characteristics, listing locations,
+and selling prices.
 
-These findings indicate that vehicle usage and engine
-characteristics are associated with used-car prices
-in the analyzed dataset.
+The visualizations provide a way to explore:
 
-Other characteristics, including manufacturing year,
-fuel type, transmission, brand, and location, are also
-discussed as relevant areas of analysis.
+- Differences in price across fuel types
+- Differences in average price by transmission
+- Variation in listings across locations
+- Differences between car manufacturers
+- Relationships between numerical vehicle attributes
+  and selling price
 
-The results provide a foundation for further
-investigation. Additional data on vehicle condition,
-accident history, features, and geographic markets
-could help develop a more comprehensive understanding
-of used-car valuation.
+The analysis provides an exploratory understanding
+of the dataset. The observed patterns can be used
+as a starting point for further statistical analysis
+or the development of a car price prediction model.
 """)
 
-st.caption(
-    "Note: Numerical findings shown here are reported "
-    "in the project document. Correlation indicates "
-    "association and does not establish causation."
-)
+
+st.divider()
+
+
+# -----------------------------
+# Limitations
+# -----------------------------
+
+st.subheader("Limitations")
+
+st.markdown("""
+The conclusions are based on the available dataset
+and the visualizations presented in the EDA.
+
+The analysis does not establish that a particular
+vehicle characteristic directly causes a change
+in selling price.
+
+Additional information such as vehicle condition,
+accident history, maintenance records, and optional
+features could provide further context for used-car
+valuation.
+""")
+
 
 st.success(
     "Exploratory Data Analysis completed. "
-    "The findings can support further statistical "
-    "analysis and future car price prediction work."
+    "The visualizations provide a foundation for "
+    "further investigation of used-car prices."
 )
