@@ -1,3 +1,3 @@
 You Can Visit The Below Link For Full Functioning of The APP:
 
-https://willbuycar.streamlit.app/
+https://edaofcars.streamlit.app/
