@@ -1,3 +1,4 @@
+
 import streamlit as st
 
 st.set_page_config(
@@ -8,46 +9,45 @@ st.set_page_config(
 st.title("Introduction")
 
 st.markdown("""
-## About the Project
+This analysis explores the factors associated with the
+selling prices of used cars in India.
 
-This project focuses on the exploratory data analysis of a
-car dataset.
+The dataset contains information about car manufacturers,
+models, manufacturing years, kilometers driven, fuel types,
+transmission, engine capacity, power, and other attributes.
 
-The objective is to understand the characteristics of cars,
-identify patterns in pricing, and explore how different factors
-such as fuel type, transmission, location, company, and
-kilometers driven are related to car prices.
+The analysis focuses on understanding the dataset,
+identifying patterns, and examining how different car
+characteristics are related to selling prices.
 """)
 
 st.divider()
 
-st.subheader("Project Objectives")
+st.subheader("Objectives of the Analysis")
 
 col1, col2 = st.columns(2)
 
 with col1:
-
     st.markdown("""
     ### Data Understanding
 
     - Understand the structure of the dataset
     - Identify important variables
-    - Check missing values
     - Examine data types
-    - Detect possible inconsistencies
+    - Identify missing values
+    - Check possible data inconsistencies
     """)
 
 with col2:
-
     st.markdown("""
-    ### Exploratory Analysis
+    ### Exploratory Data Analysis
 
-    - Analyze car prices
-    - Study fuel types
-    - Compare transmissions
-    - Analyze car companies
-    - Explore locations
-    - Study relationships between variables
+    - Analyze the distribution of car prices
+    - Compare prices across fuel types
+    - Examine manual and automatic transmissions
+    - Explore car manufacturers and models
+    - Analyze differences across locations
+    - Investigate relationships between variables
     """)
 
 st.divider()
@@ -55,26 +55,44 @@ st.divider()
 st.subheader("Dataset Features")
 
 st.markdown("""
-Some important variables available in the dataset include:
+The dataset includes the following important attributes:
+""")
 
+st.markdown("""
 | Feature | Description |
 |---|---|
-| `Name` | Name of the car |
-| `Location` | Location where the car is listed |
+| `Name` | Car brand and model name |
+| `Location` | City where the car is listed |
 | `Year` | Manufacturing year |
-| `Kilometers_Driven` | Distance driven |
-| `Fuel_Type` | Type of fuel |
-| `Transmission` | Manual or automatic |
-| `Owner` | Ownership information |
+| `Kilometers_Driven` | Distance driven by the car |
+| `Fuel_Type` | Type of fuel used |
+| `Transmission` | Manual or automatic transmission |
+| `Owner_Type` | Ownership information |
 | `Mileage` | Mileage of the car |
 | `Engine` | Engine capacity |
 | `Power` | Engine power |
 | `Seats` | Number of seats |
-| `Price` | Selling price |
+| `Price` | Selling price of the used car |
+""")
+
+st.divider()
+
+st.subheader("Questions Investigated")
+
+st.markdown("""
+- How do car characteristics relate to selling price?
+- Does the car's brand or model have a relationship with price?
+- How does transmission type relate to price?
+- Does the selling location show differences in price?
+- How are manufacturing year and kilometers driven
+  associated with price?
+- How do mileage, engine capacity, and power relate to price?
+- How do fuel type and number of seats relate to price?
 """)
 
 st.divider()
 
 st.info(
-    "Move to the EDA page to explore the dataset interactively."
+    "Proceed to the EDA page to explore the data "
+    "and examine these relationships through visualizations."
 )
