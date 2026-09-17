@@ -4,7 +4,9 @@ An interactive web application for exploring car data, analyzing price patterns,
 
 ## Live Demo
 
-[Open the Car EDA Dashboard](https://edaofcars.streamlit.app/)
+<a href="https://edaofcars.streamlit.app/" target="_blank" rel="noopener noreferrer">
+  Open the Car EDA Dashboard
+</a>
 
 ## Features
 
