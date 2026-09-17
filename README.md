@@ -1,3 +1,3 @@
-You Can Visit The Below Link For Full Functioning of The APP:
+You can visit the below link to check the full functionality of the app:
 
 https://edaofcars.streamlit.app/
